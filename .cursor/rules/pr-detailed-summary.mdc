@@ -1,0 +1,89 @@
+---
+description: Detailed copy-paste PR body when finishing a problem branch
+alwaysApply: true
+---
+
+# Problem PR Detailed Summary
+
+Whenever the user asks to open a PR, prepare a PR, or wants a **PR summary /
+description** for a DSA/algo problem branch, **always** provide a detailed
+copy-paste markdown body in chat (and use it for `gh pr create` when creating
+the PR). Do not wait to be asked for the long form.
+
+## PR title
+
+`{Topic}: add LeetCode {n} ({Problem Name}) {short approach} solution and tests`
+
+Examples:
+- `Graphs: add LeetCode 542 (01 Matrix) multi-source BFS solution and tests`
+- `Graphs: add LeetCode 130 (Surrounded Regions) border DFS solution and tests`
+
+## Required body sections (in order)
+
+Use this skeleton; fill every section from the actual solution and tests:
+
+````markdown
+## Problem
+
+**LeetCode {n}. {Name}** ({Easy|Medium|Hard})
+
+{1–3 sentence restatement of the problem.}
+
+### Examples
+
+```
+{1–2 compact input/output examples}
+```
+
+### Constraints
+
+- {bullet list from the problem}
+
+## Solution
+
+{Approach name and high-level idea.}
+
+1. **Step…**
+2. **Step…**
+
+### Why {this approach}
+
+{1 short paragraph on the key insight / why not the naive alternative.}
+
+### Complexity
+
+- **Time:** …
+- **Space:** …
+
+## Files changed
+
+| File | Change |
+| --- | --- |
+| `src/main/java/com/practice/...` | … |
+| `src/test/java/com/practice/...` | … |
+
+## Test coverage
+
+{Full markdown table matching the test-review-summary rule columns:
+Group | Test | Input (brief) | Expected | Why it matters.
+One row per test.}
+
+## Test plan
+
+- [x] `./mvnw -Dtest={Class}Test test` — {N} tests, 0 failures
+- [ ] `./mvnw test` — full suite green
+- [ ] LeetCode submission accepted for provided examples
+
+## Notes
+
+- {branch name, commit focus, anything out of scope}
+````
+
+## Guidance
+
+- Prefer the long form above over a short “Summary + Test plan only” body.
+- Match tone/structure used for prior graph PRs (01 Matrix, Detect Cycles,
+  Rotting Oranges).
+- If `gh` is unavailable, still print title + body for copy-paste and the
+  compare URL: `https://github.com/{owner}/{repo}/pull/new/{branch}`.
+- Rule/chore-only PRs may use a shorter Summary + Test plan body.
