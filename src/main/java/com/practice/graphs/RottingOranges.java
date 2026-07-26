@@ -14,6 +14,10 @@ public class RottingOranges {
         Queue<Pair> q = new LinkedList<>();
         int[][] vis = new int[n][m];
         int cntFresh = initQueueAndVisAndReturnCntFresh(q, vis, n, m, grid);
+        if (cntFresh < 0) {
+            // Invalid input
+            return -1;
+        }
 
         int tmRes = 0;
         int[] dRow = {-1, 0, 1, 0};
