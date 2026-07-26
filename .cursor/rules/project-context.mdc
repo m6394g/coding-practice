@@ -1,0 +1,22 @@
+---
+description: Build, test, and structure conventions for coding-practice
+alwaysApply: true
+---
+
+# Project Context
+
+- Java 21 Maven project.
+- Use the checked-in Maven Wrapper (`./mvnw`), never depend on a global `mvn`.
+- On this Mac, Java 21 is Corretto at
+  `$HOME/Library/Java/JavaVirtualMachines/corretto-21.0.12/Contents/Home`.
+- If Java is not discovered, run:
+  `JAVA_HOME="$HOME/Library/Java/JavaVirtualMachines/corretto-21.0.12/Contents/Home" ./mvnw test`.
+- Production code: `src/main/java/com/practice`.
+- Tests: `src/test/java/com/practice`, using JUnit Jupiter.
+- Run targeted tests while iterating:
+  `./mvnw -Dtest=ClassNameTest test`.
+- Run `./mvnw test` before completing substantive Java changes.
+- Match the package of tests to the production class package.
+- Do not commit `target/`, IDE metadata, or generated class files.
+- Branch/commit naming: see `git-branch-commit.mdc`
+  (`{package}/{problem-kebab-case}`, topic-prefixed commit messages).
