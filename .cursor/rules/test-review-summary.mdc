@@ -1,0 +1,29 @@
+---
+description: After writing tests, always provide a review summary table
+alwaysApply: true
+---
+
+# Test Case Review Summary
+
+Whenever you write or substantially update problem tests, **always include a
+markdown summary table in the chat reply** so the user can review coverage
+without opening every test method. Do not wait to be asked.
+
+## Required table columns
+
+| Column | Meaning |
+| --- | --- |
+| Group | Nested class / category name |
+| Test | Method name |
+| Input (brief) | Compact description or key shape of input |
+| Expected | What the assertion checks |
+| Why it matters | Edge / example / property under test |
+
+## Guidance
+
+- One row per `@Test` (or parameterized case family).
+- Keep cells short; prefer shapes like `3x3, zero at center` over full matrices.
+- Group rows in the same order as the test file.
+- If tests already existed and you only add a few, summarize the new ones and
+  note that the rest are unchanged — or provide the full table if small.
+- Still follow existing test style in the repo (`@Nested`, `@DisplayName`, etc.).
