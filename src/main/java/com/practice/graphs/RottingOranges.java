@@ -5,6 +5,18 @@ import java.util.Queue;
 
 public class RottingOranges {
 
+    private static class Pair {
+        int r;
+        int c;
+        int tm;
+
+        public Pair (int r, int c, int tm) {
+            this.r = r;
+            this.c = c;
+            this.tm = tm;
+        }
+    }
+
     public int orangesRotting(int[][] grid) {
         int n = grid.length;
         if (n == 0) {
@@ -35,7 +47,7 @@ public class RottingOranges {
                 int nc = c + dCol[i];
 
                 if (nr>=0 && nr<n && nc>=0 && nc<m && vis[nr][nc]==0 && grid[nr][nc]==1) {
-                    q.add(new Pair(nr, nc, tm+1));
+                    q.add(new Pair(nr, nc, tm + 1));
                     vis[nr][nc] = 2;
                     cntRotten++;
                 }
@@ -67,17 +79,5 @@ public class RottingOranges {
             }
         }
         return cntFresh;
-    }
-}
-
-class Pair {
-    int r;
-    int c;
-    int tm;
-
-    public Pair (int r, int c, int tm) {
-        this.r = r;
-        this.c = c;
-        this.tm = tm;
     }
 }

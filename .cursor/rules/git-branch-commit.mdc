@@ -1,0 +1,45 @@
+---
+description: Branch and commit conventions for DSA/algo problems
+alwaysApply: true
+---
+
+# Git Branch & Commit Strategy
+
+Align branches and commits with the topic packages under `com.practice.*`
+(`arrays`, `dp`, `graphs`, `trees`, …).
+
+## Branches
+
+- One problem (or tightly related variants) per branch.
+- Name: `{package}/{problem-kebab-case}`
+  - `{package}` = folder under `com.practice` (e.g. `graphs`, `arrays`)
+  - `{problem-kebab-case}` = short problem slug from the class/problem name
+- Examples:
+  - `graphs/rotting-oranges`
+  - `graphs/detect-cycles-in-2d-grid`
+  - `arrays/two-sum`
+- Do not use vague names (`fix`, `updates`, `wip`).
+- Legacy underscore names like `graph_rotting_oranges` are historical; use the
+  package/slash form going forward.
+
+## Commits
+
+- Prefer the topic prefix matching the package (capitalized):
+  - `Graphs: add Detect Cycles in 2D Grid solution and tests`
+  - `Arrays: add Two Sum brute-force and hashmap variants`
+- For non-problem work:
+  - `chore: …` (tooling, wrapper, CI)
+  - `docs: …` (README, rules)
+- Keep commits focused: solution, tests, and same-problem variants may share a
+  commit; unrelated topics stay on other branches.
+- Do not mix multiple unrelated problems in one commit.
+- Run `./mvnw test` (or targeted `./mvnw -Dtest=…Test test`) before committing
+  problem code.
+
+## Workflow
+
+1. Start from updated `main`.
+2. `git checkout -b {package}/{problem-kebab-case}`
+3. Implement under `src/main/java/com/practice/{package}/` and matching tests.
+4. Commit with the topic-prefixed message.
+5. Open a PR into `main` when ready (only if asked).
