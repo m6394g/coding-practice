@@ -20,8 +20,8 @@ public class CourseSchedule {
             adjList.add(new ArrayList<>());
         }
         for (int[] prerequisite : prerequisites) {
-            int u = prerequisite[0];
-            int v = prerequisite[1];
+            int v = prerequisite[0];
+            int u = prerequisite[1];
             adjList.get(u).add(v);
         }
 
