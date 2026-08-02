@@ -1,0 +1,16 @@
+---
+description: After user says a PR is merged, sync local main
+alwaysApply: true
+---
+
+# Post-merge: sync main
+
+When the user says a PR is **merged** (or equivalent: “merged”, “PR merged”,
+“it’s merged”), immediately:
+
+1. `git checkout main`
+2. `git pull` (fast-forward to `origin/main`)
+3. Confirm with a short status (branch name + latest commit)
+
+Do this without waiting to be asked to “go to main” or “pull”. Do not delete
+the feature branch unless the user asks.
