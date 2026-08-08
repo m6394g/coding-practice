@@ -84,6 +84,8 @@ One row per test.}
 - Prefer the long form above over a short “Summary + Test plan only” body.
 - Match tone/structure used for prior graph PRs (01 Matrix, Detect Cycles,
   Rotting Oranges).
-- If `gh` is unavailable, still print title + body for copy-paste and the
-  compare URL: `https://github.com/{owner}/{repo}/pull/new/{branch}`.
+- Use `/opt/homebrew/bin/gh` for all GitHub CLI calls (see `project-context.mdc`).
+  Do not spend turns locating `gh` on PATH.
+- If `gh` still fails, print title + body for copy-paste and the compare URL:
+  `https://github.com/{owner}/{repo}/pull/new/{branch}`.
 - Rule/chore-only PRs may use a shorter Summary + Test plan body.

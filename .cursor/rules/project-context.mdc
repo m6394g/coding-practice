@@ -11,6 +11,8 @@ alwaysApply: true
   `$HOME/Library/Java/JavaVirtualMachines/corretto-21.0.12/Contents/Home`.
 - If Java is not discovered, run:
   `JAVA_HOME="$HOME/Library/Java/JavaVirtualMachines/corretto-21.0.12/Contents/Home" ./mvnw test`.
+- GitHub CLI is at `/opt/homebrew/bin/gh` (not on default agent PATH). Call it
+  with that absolute path; do not search for `gh` each time.
 - Production code: `src/main/java/com/practice`.
 - Tests: `src/test/java/com/practice`, using JUnit Jupiter.
 - Run targeted tests while iterating:
